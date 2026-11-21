@@ -1,0 +1,386 @@
+/*
+Colors:
+  --primary-color: #8D0801   ; deep red
+  --secondary-color: #BF0603 ; slightly brigher red
+  --accent1-color: #235789; nice blue
+  --accent2-color: #C4CBCA; like a silver
+  */
+
+
+/* #region Overall Modifiers */
+body {
+    background-color: #c4cbca;
+    max-width: 1100px;
+    color: black;
+    /* #c4cbca */
+    /* This color ^ ? black? Smth else??? */
+    /* ooo, check that coolors site again */
+}
+
+a {
+    color: black;
+}
+/* #endregion Overall Modifiers */
+
+/* ohhhhhh my gosh that is so useful ^ 
+gonna organize the heck out of this thing now */
+
+/* #region Header */
+header {
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    background-color: #235789;
+    padding-right: 10px;
+}
+
+#logo {
+    width: 100px;
+    height: 100px;
+}
+
+nav {
+    background-color: #bf0603;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#EA {
+    background-color: white;
+}
+/* #endregion Header */
+
+#quote {
+    text-align: center;
+    margin: 10px;
+}
+
+/* #region Prank Button*/
+#prank-button {
+    font-size: 20px;
+    padding: 15px 30px;
+    cursor: pointer; 
+    background: red;
+    color: white;
+    border-radius: 8px;
+}
+
+#prank-button-grid {
+    text-align: center;
+}
+
+/* Note; cursor: pointer; is what shows the user that the mouse is 
+hovering over something that can be clicked. Working functionality
+is not affected without it */
+
+#whiteout {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+    z-index: 9998;
+}
+
+#whiteout.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* like the previous whiteout prank, this ^
+functions like a transparent film over the entire visible screen.
+Then, on command, it turns completely white. Thats why no amount
+of scrolling gets rid of it. vw/h stands for "viewport", numbers are
+percentages of the screen. Pointer events being none allows the mouse
+to work normally; otherwise, the film would block input as well. 
+z-index doesn't matter, so long as its consistent. Might make it a
+trillion just cause*/
+
+/* .active is somewhat arbitrary (?), CSS just says what will happen 
+in that circumstance, JS is what actually uses it.*/
+
+#message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 24px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 6s ease-in;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* Transform translate, with the 50 50, is a way to center something 
+without a parent function */
+
+#message.show {
+    opacity: 1;
+}
+
+#prank-result {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 2s ease-in;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+/* display none makes it so that it doesn't exist, whereas something 
+like opacity only makes it invisible/viewable */
+
+#prank-result.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#prank-result img {
+    max-width: 300px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 30px auto;
+}
+
+#enter-site {
+    font-size: 18px;
+    padding: 12px 28px;
+    cursor: pointer;
+    background: red;
+    color: white;
+    border-radius: 8px;
+}
+
+#message-2 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 26px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 3s ease-in;
+    z-index: 10001;
+    pointer-events: none;
+}
+
+#message-2.show {
+    opacity: 1;
+}
+/* #endregion prank button*/
+
+/* #region Main Heading */
+#main-heading {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 700px;
+    justify-content: center;
+    background-color: #235789;
+    border-radius: 10px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+#lcs {
+    width: 700px;
+    height: 300px;
+    object-fit: cover;
+    border: 10px solid #bf0603;
+    margin-bottom: 20px;
+}
+/* #endregion Main Heading */
+
+/* #region Secondary Headings */
+#secondary-headings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(25, 50px);
+        background-color: #235789;
+    border-radius: 10px;
+}
+
+#lcs122-title {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    margin: 25px;
+}
+#lcs122-text {
+    grid-column: 2/3;
+    grid-row: 4/6;
+    text-align: left;
+    margin: 25px;
+}
+
+#lcs122-pic {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border: 10px solid #bf0603;
+    grid-column: 1/2;
+    grid-row: 1/7;
+    animation: 
+        fadeslidein linear,
+        fadeslideout linear;
+    animation-timeline: view();
+    animation-range: entry, exit;
+    /* 2 entries (entry) doesnt work; changed to support 2 animations? */
+    /* way to make it smoother? idk it just feels off to me rn... */
+    /* apply to others; modify */
+    border-radius: 10px 0 0 0;
+}
+
+.awards-title {
+    grid-row: 11/12;
+    text-align: right;
+    margin: 25px;
+}
+
+#awards-text {
+    grid-column: 1/2;
+    grid-row: 12/15;
+    text-align: right;
+    margin: 25px;
+}
+
+#awards-pic {
+    grid-row: 9/15;
+    grid-column: 2/3;
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border: 10px solid #bf0603;
+    animation: 
+        fadeslidein-right linear,
+        fadeslideout-right linear;
+    animation-timeline: view();
+    animation-range: entry, exit;
+
+}
+
+.credits-title {
+    grid-row: 19/20;
+    grid-column: 2/3;
+    margin: 25px;
+}
+
+#credits-text {
+    grid-column: 2/3;
+    grid-row: 20/23;
+    text-align: left;
+    margin: 25px;
+}
+
+#credits-pic-NNU {
+    grid-row: 17/23;
+    grid-column: 1/2;
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border: 10px solid #bf0603;
+    animation: 
+        fadeslidein linear,
+        fadeslideout linear;
+    animation-timeline: view();
+    animation-range: entry, exit;
+}
+/* #endregion Secondary Headings */
+
+/* #region Keyframes */
+@keyframes fadeslidein {
+    from {
+        opacity: 0;
+        transform: translateX(-300px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeslidein-right {
+    from {
+        opacity: 0;
+        transform: translateX(300px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeslideout {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-300px);
+    }
+}
+
+@keyframes fadeslideout-right {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(300px);
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* #endregion Keyframes */
+
+/* #region Page Previews */
+#page-previews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    background-color: #235789;
+    border-radius: 10px 10px 0 0;
+    margin-top: 35px;
+}
+
+#page-previews img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border: 10px solid #bf0603;
+    margin-top: 20px;
+    animation: fadein linear;
+    animation-timeline: view();
+    animation-range: entry, exit;
+}
+
+#preview-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+    background-color: #235789;
+    border-radius: 0 0 10px 10px;
+}
+/* #endregion Page Previews */
