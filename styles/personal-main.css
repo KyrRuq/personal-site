@@ -12,6 +12,8 @@ body {
     background-color: #c4cbca;
     max-width: 1100px;
     color: black;
+    margin: 0 auto;
+    padding: 16px 16px;
     /* #c4cbca */
     /* This color ^ ? black? Smth else??? */
     /* ooo, check that coolors site again */
@@ -384,3 +386,20 @@ like opacity only makes it invisible/viewable */
     border-radius: 0 0 10px 10px;
 }
 /* #endregion Page Previews */
+
+/* #region Footer */
+footer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    background-color: #235789;
+    border-radius: 10px;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+#copyright {
+    text-align: center;
+    color: white;
+}
+/* #endregion Footer */

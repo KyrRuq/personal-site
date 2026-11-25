@@ -1,19 +1,32 @@
-/*
-Colors:
-  --primary-color: #8D0801   ; deep red
-  --secondary-color: #BF0603 ; slightly brigher red
-  --accent1-color: #235789; nice blue
-  --accent2-color: #C4CBCA; like a silver
-  */
+:root {
+    --primary-color: #8d0801;
+    --secondary-color: #bf0603;
+    --accent1-color: #235789;
+    --accent2-color: #c4cbca;
+}
+
+/* THIS IS HOW YOU CAN SET VARIABLES TO REFER TO ^^^^
+change the rest of your code to match 
+holy awesome so convenient*/
 
 /* #region Overall Modifiers */
 body {
-    background-color: #c4cbca;
+    background-color: var(--accent2-color);
     max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 16px;
 }
+
+/* max width + auto margins are what centers the page and gives 
+it nice zoom properties) */
 
 a {
     color: black;
+}
+
+img {
+    display: block;
+    object-fit: cover;
 }
 /* #endregion Overall Modifiers */
 
@@ -23,17 +36,20 @@ header {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
-    background-color: #235789;
+    background-color: var(--accent1-color);
     padding-right: 10px;
 }
 
-#logo {
+/* auto grid here ^ allows the logo to take up its alloted space,
+ then gives the rest of it to the rest of the nav. Remember that. */
+
+.logo {
     width: 100px;
     height: 100px;
 }
 
 nav {
-    background-color: #bf0603;
+    background-color: var(--secondary-color);
     display: flex;
     justify-content: center;
     gap: 60px;
@@ -51,12 +67,130 @@ nav {
     margin: 10px;
 }
 
-#main-heading img {
-    width: 100px;
+/* #region Main Heading */
+#main-heading-title {
+    text-align: center;
+}
+
+#main-pics {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    background-color: var(--accent1-color);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* position relative NEEDED FOR POSITION ABSOLUTE TO WORK RIGHT HERE */
+
+.big-4-pics {
+    width: 100%;
+    height: 250px;
+    border: 10px solid var(--secondary-color);
+}
+
+#center-pic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 200px;
+    z-index: 1;
+    border: 5px solid var(--secondary-color);
+}
+
+/* position absolute tells it that this "isnt" apart of my grid, and does
+not affect the placement of other things. */
+
+/* #endregion Main Heading */
+
+/* #region Secondary Headings */
+#secondary-headings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+    padding: 30px 30px;
+    background-color: var(--accent1-color);
+    border-radius: 10px;
+}
+
+.bottom-2-pics {
+    width: 100%;
+    height: 170px;
+    border: 10px solid var(--secondary-color);
+}
+
+.secondary-titles {
+    text-align: center;
+}
+
+#gaming-section-text {
+    background-color: var(--accent1-color);
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+/* #endregion Secondary Headings */
+
+/* #region Page Previews */
+#page-previews {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.game-card {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--accent1-color);
+    border: 5px solid var(--secondary-color);
+}
+
+.game-card:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+
+/* go back to W3, figure out how nth/span works again? */
+/* selects that child element. Use to make the 3.2 ^^ */
+
+.game-cards img {
+    width: 100%;
     height: 200px;
 }
 
-#page-previews img {
-    width: 100px;
-    height: 200px;
+.game-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 12px;
 }
+
+/* do I even need this */
+
+.card-body a {
+    margin-top: auto;
+}
+/* #endregion Page Previews */
+
+/* #region Footer */
+footer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    background-color: var(--accent1-color);
+    border-radius: 10px;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+#copyright {
+    text-align: center;
+    color: white;
+}
+/* #endregion Footer */

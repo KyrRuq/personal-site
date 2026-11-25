@@ -10,6 +10,8 @@ Colors:
 body {
     background-color: #c4cbca;
     max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 16px;
 }
 
 a {
@@ -55,6 +57,9 @@ nav {
 #main-heading {
     display: grid;
     grid-template-rows: 1fr .2fr .3fr;
+    background-color: #235789;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 10px;
 }
 
 .main-titles {
@@ -68,6 +73,7 @@ nav {
     justify-self: center;
     grid-row: 1/2;
     margin-top: 35px;
+    border: 10px solid #bf0603;
 }
 
 #main-heading p {
@@ -80,6 +86,9 @@ nav {
 #drama-section-pictures {
     display: grid;
     grid-template-rows: 1fr 1fr;
+    background-color: #235789;
+    border-radius: 10px 10px 0 0;
+    margin-top: 35px;
 }
 
 #drama-main-pic {
@@ -88,6 +97,8 @@ nav {
     grid-row: 1/3;
     display: block;
     margin: auto;
+    margin-top: 35px;
+    border: 10px solid #bf0603;
 }
 
 .drama-side-pics-1 {
@@ -96,6 +107,7 @@ nav {
     grid-row: 1/2;
     display: block;
     margin: auto;
+    border: 10px solid #bf0603;
 }
 
 .drama-side-pics-2 {
@@ -104,12 +116,15 @@ nav {
     grid-row: 2/3;
     display: block;
     margin: auto;
+    border: 10px solid #bf0603;
 }
 
 #drama-section-text {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 80px 150px;
+    background-color: #235789;
+    border-radius: 0 0 10px 10px;
 }
 
 #drama-title {
@@ -126,6 +141,9 @@ nav {
 #football-section-pictures {
     display: grid;
     grid-template-rows: 1fr 1fr;
+    background-color: #235789;
+    border-radius: 10px 10px 0 0;
+    margin-top: 35px;
 }
 
 #football-main-pic {
@@ -135,6 +153,8 @@ nav {
     grid-column: 3/4;
     display: block;
     margin: auto;
+    margin-top: 35px;
+    border: 10px solid #bf0603;
 }
 
 .football-side-pics-1 {
@@ -143,6 +163,7 @@ nav {
     grid-row: 1/2;
     display: block;
     margin: auto;
+    border: 10px solid #bf0603;
 }
 
 .football-side-pics-2 {
@@ -151,12 +172,15 @@ nav {
     grid-row: 2/3;
     display: block;
     margin: auto;
+    border: 10px solid #bf0603;
 }
 
 #football-section-text {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 80px 150px;
+    background-color: #235789;
+    border-radius: 0 0 10px 10px;
 }
 
 #football-title {
@@ -180,8 +204,11 @@ nav {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 300px 200px;
+    grid-template-rows: 300px 350px;
     gap: 10px;
+    background-color: #235789;
+    border-radius: 10px;
+    margin-top: 35px;
 }
 
 .CAP-top-pics {
@@ -190,6 +217,8 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border: 10px solid #bf0603;
+    box-sizing: border-box;
 }
 
 .CAP-bottom-pics {
@@ -198,23 +227,53 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border: 10px solid #bf0603;
+    box-sizing: border-box;
 }
+
+/* ^ border-box is needed to keep the pics from overflowing */
 
 #CAP-section-text {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 80px 150px;
+    background-color: #235789;
+    border-radius: 0 0 10px 10px;
+}
+
+#CAP-text {
+    text-align: center;
+    grid-column: 1/3;
+
 }
 
 #CAP-title {
     text-align: center;
-    grid-column: 2/3;
+    grid-column: 1/3;
 }
 
-#CAP-text {
-    grid-row: 2/3;
-    grid-column: 2/3;
-    text-align: center;
+#CAP-positions {
+
+}
+
+#CAP-awards {
+
 }
 /* #endregion CAP Section */
 
+/* #region Footer */
+footer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    background-color: #235789;
+    border-radius: 10px;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+#copyright {
+    text-align: center;
+    color: white;
+}
+/* #endregion Footer */
